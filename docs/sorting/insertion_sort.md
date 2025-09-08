@@ -29,30 +29,85 @@ Endliche Liste/Array von Objekten, die sich eindeutig miteinander vergleichen la
 ### Grafisch
 
 ```mermaid
-%% -------------------------------------------
-%%  Insertion-Sort – Schritt für Schritt
-%% -------------------------------------------
-flowchart TD
-    %% Legende
-    subgraph "Legende"
+%% ----------------------------------------------------------
+%%  Bunter Insertion-Sort – Schritt für Schritt (5 2 4 6 1 3)
+%% ----------------------------------------------------------
+
+flowchart TB
+    %% ------------------------------------
+    %%  Farbschemata
+    %% ------------------------------------
+    classDef sorted   fill:#b2f2bb,stroke:#2f9e44,color:#000      %% grün
+    classDef unsorted fill:#ffe8a1,stroke:#f08c00,color:#000      %% orange
+    classDef key      fill:#ffc9c9,stroke:#fa5252,color:#000,font-weight:bold  %% rot
+
+    %% ------------------------------------
+    %%  Schritt 0  (Ausgangslage)
+    %% ------------------------------------
+    subgraph STEP0["Schritt 0"]
         direction LR
-        L1[linke Seite = sortiert] --- L2[rechte Seite = unsortiert]
+        s0(["5"]):::sorted      %% sortierter Teil
+        u0(["2 4 6 1 3"]):::unsorted
+        k0(("Key = 2")):::key   %% aktuelles Element
     end
 
-    %% Schritte
-    A0["5 &#124; 2 4 6 1 3"]
-    A1["2 5 &#124; 4 6 1 3"]
-    A2["2 4 5 &#124; 6 1 3"]
-    A3["2 4 5 6 &#124; 1 3"]
-    A4["1 2 4 5 6 &#124; 3"]
-    A5["1 2 3 4 5 6 &#124;"]
+    %% ------------------------------------
+    %%  Schritt 1  (2 wird eingefügt)
+    %% ------------------------------------
+    subgraph STEP1["Schritt 1"]
+        direction LR
+        s1(["2 5"]):::sorted
+        u1(["4 6 1 3"]):::unsorted
+        k1(("Key = 4")):::key
+    end
 
-    %% Kanten + Beschriftung
-    A0 -->|"2" einsetzen| A1
-    A1 -->|"4" einsetzen| A2
-    A2 -->|"6" einsetzen| A3
-    A3 -->|"1" einsetzen| A4
-    A4 -->|"3" einsetzen| A5
+    %% ------------------------------------
+    %%  Schritt 2  (4 wird eingefügt)
+    %% ------------------------------------
+    subgraph STEP2["Schritt 2"]
+        direction LR
+        s2(["2 4 5"]):::sorted
+        u2(["6 1 3"]):::unsorted
+        k2(("Key = 6")):::key
+    end
+
+    %% ------------------------------------
+    %%  Schritt 3  (6 bleibt stehen)
+    %% ------------------------------------
+    subgraph STEP3["Schritt 3"]
+        direction LR
+        s3(["2 4 5 6"]):::sorted
+        u3(["1 3"]):::unsorted
+        k3(("Key = 1")):::key
+    end
+
+    %% ------------------------------------
+    %%  Schritt 4  (1 wird eingefügt)
+    %% ------------------------------------
+    subgraph STEP4["Schritt 4"]
+        direction LR
+        s4(["1 2 4 5 6"]):::sorted
+        u4(["3"]):::unsorted
+        k4(("Key = 3")):::key
+    end
+
+    %% ------------------------------------
+    %%  Schritt 5  (3 wird eingefügt – fertig)
+    %% ------------------------------------
+    subgraph STEP5["Schritt 5"]
+        direction LR
+        s5(["1 2 3 4 5 6"]):::sorted
+        u5([" "]):::unsorted
+    end
+
+    %% ------------------------------------
+    %%  Übergänge / Pfeile
+    %% ------------------------------------
+    STEP0 -->|"2 einfügen"| STEP1
+    STEP1 -->|"4 einfügen"| STEP2
+    STEP2 -->|"6 einfügen"| STEP3
+    STEP3 -->|"1 einfügen"| STEP4
+    STEP4 -->|"3 einfügen"| STEP5
 ```
 
 
