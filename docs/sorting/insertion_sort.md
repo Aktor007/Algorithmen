@@ -31,30 +31,28 @@ Endliche Liste/Array von Objekten, die sich eindeutig miteinander vergleichen la
 ```mermaid
 %% -------------------------------------------
 %%  Insertion-Sort – Schritt für Schritt
-%%  Beispiel­array: 5 2 4 6 1 3
-%%  |  = Trenner zwischen sortiertem & unsortiertem Teil
 %% -------------------------------------------
-graph TD
+flowchart TD
     %% Legende
-    subgraph Legende
+    subgraph "Legende"
         direction LR
         L1[linke Seite = sortiert] --- L2[rechte Seite = unsortiert]
     end
 
     %% Schritte
-    A0([ 5 | 2 4 6 1 3 ])
-    A1([ 2 5 | 4 6 1 3 ])
-    A2([ 2 4 5 | 6 1 3 ])
-    A3([ 2 4 5 6 | 1 3 ])
-    A4([ 1 2 4 5 6 | 3 ])
-    A5([ 1 2 3 4 5 6 | ])
+    A0["5 &#124; 2 4 6 1 3"]
+    A1["2 5 &#124; 4 6 1 3"]
+    A2["2 4 5 &#124; 6 1 3"]
+    A3["2 4 5 6 &#124; 1 3"]
+    A4["1 2 4 5 6 &#124; 3"]
+    A5["1 2 3 4 5 6 &#124;"]
 
     %% Kanten + Beschriftung
-    A0 -->|„2“ einsetzen| A1
-    A1 -->|„4“ einsetzen| A2
-    A2 -->|„6“ einsetzen| A3
-    A3 -->|„1“ einsetzen| A4
-    A4 -->|„3“ einsetzen| A5
+    A0 -->|"2" einsetzen| A1
+    A1 -->|"4" einsetzen| A2
+    A2 -->|"6" einsetzen| A3
+    A3 -->|"1" einsetzen| A4
+    A4 -->|"3" einsetzen| A5
 ```
 
 
