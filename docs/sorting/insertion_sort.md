@@ -28,6 +28,7 @@ Endliche Liste/Array von Objekten, die sich eindeutig miteinander vergleichen la
 
 ### Grafisch
 
+```mermaid
 %% -------------------------------------------
 %%  Insertion-Sort – Schritt für Schritt
 %%  Beispiel­array: 5 2 4 6 1 3
@@ -54,6 +55,7 @@ graph TD
     A2 -->|„6“ einsetzen| A3
     A3 -->|„1“ einsetzen| A4
     A4 -->|„3“ einsetzen| A5
+```
 
 
 ## Ergebnis
