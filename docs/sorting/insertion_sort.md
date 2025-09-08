@@ -92,6 +92,17 @@ STEP4 -->|"insert 3"| STEP5
 
 ```
 
+## Bildliches Beispiel & Pseudo-Code
+
+for i = 2 .. n
+    key = A[i]
+    j   = i - 1
+    while j > 0 and A[j] > key
+        A[j + 1] = A[j]   // nach rechts schieben
+        j = j - 1
+    A[j + 1] = key
+
+
 
 ## Ergebnis
 <!-- Zeit-/Speicherkomplexität, Beispielausgabe, Tests -->
