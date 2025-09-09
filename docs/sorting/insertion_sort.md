@@ -109,8 +109,39 @@ for i = 2 .. n
 | `>`                | 🦅 Adlerblick | vergleicht Gewichte                                              | Vergleichs­operation         |
 | „rechts schieben“  | 🐘 Elefant    | große Tiere wackeln einen Platz nach rechts                      | `A[j+1] = A[j]`              ||
 
+Zusätzlich symbolisieren wir die Zahlen 1–6 durch Tiere nach ihrem Gewicht:
+
+1 = 🐜 Ameise 2 = 🐭 Maus 3 = 🐰 Hase 4 = 🐱 Katze 5 = 🐶 Hund 6 = 🐻 Bär 
+
+
+```
+Ast:  🐶  🐭  🐱  🐻  🐜  🐰
+Index: 1  2   3   4   5   6
+           ^                   i-Igel steht an Position 2
+```
+
+#### Schritt-für-Schritt-Story
+
+| Step | Szene (ASCII-Bild) | Was passiert im Code? | Merksatz |
+|-----:|--------------------|-----------------------|----------|
+| 0 | `🐶🐭 🐱 🐻 🐜 🐰` | Igel `i = 2` ruft Koala `key = 🐭` (Zahl 2). Jaguar `j = 1` schaut nach links. | |
+| 1 | `🐭 🐶🐱 🐻 🐜 🐰` | `A[j] > key`? 🐶(5) > 🐭(2) → **Elefant-Aktion**: Hund rutscht nach rechts. Jaguar springt nach links (`j = 0`). Danach `A[j+1] = key` – Maus sitzt links. | |
+| 2 | `🐭 🐶🐱 🐻 🐜 🐰→i=3` | Koala holt 🐱 (4). Jaguar startet bei 🐶 (5). 5 > 4 ⇒ Hund wackelt nach rechts, Jaguar nach links. 2 > 4? Nein. Katze wird eingesetzt. | |
+| 3 | `🐭 🐱 🐶🐻 🐜 🐰→i=4` | Koala holt 🐻 (6). Jaguar vergleicht, nichts größer ⇒ Bär bleibt rechts. | |
+| 4 | `🐭 🐱 🐶 🐻🐜 🐰→i=5` | Koala holt 🐜 (1). Jaguar schiebt erst 🐻, dann 🐶, dann 🐱, dann 🐭 je einen Platz nach rechts. Ganz links wird Ameise eingesetzt. | |
+| 5 | `🐜 🐭 🐱 🐶 🐻🐰→i=6` | Koala holt 🐰 (3). Jaguar schiebt Bär und Hund ein Feld, Katze bleibt (4 > 3, aber 2 < 3). Hase wird hinter Katze eingesetzt. | |
+| 6 | `🐜 🐭 🐰 🐱 🐶 🐻` | Igel hat das Astende (`i = n + 1`) erreicht ⇒ fertig. | „Ast ist von links nach rechts sortiert.“ |
 
 
 
 ## Ergebnis
-<!-- Zeit-/Speicherkomplexität, Beispielausgabe, Tests -->
+```
+Start : 🐶 | 🐭 🐱 🐻 🐜 🐰
+Step 1: 🐭 🐶 | 🐱 🐻 🐜 🐰
+Step 2: 🐭 🐱 🐶 | 🐻 🐜 🐰
+Step 3: 🐭 🐱 🐶 🐻 | 🐜 🐰
+Step 4: 🐜 🐭 🐱 🐶 🐻 | 🐰
+Step 5: 🐜 🐭 🐰 🐱 🐶 🐻 |
+
+```
+
