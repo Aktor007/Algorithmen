@@ -88,6 +88,7 @@ STEP4 -->|"insert 3"| STEP5
 
 ## Bildliches Beispiel & Pseudo-Code
 
+```
 for i = 2 .. n
     key = A[i]
     j   = i - 1
@@ -95,7 +96,7 @@ for i = 2 .. n
         A[j + 1] = A[j]   // nach rechts schieben
         j = j - 1
     A[j + 1] = key
-
+```
 
 
 ## Ergebnis
