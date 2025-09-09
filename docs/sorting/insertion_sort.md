@@ -10,20 +10,14 @@ Endliche Liste/Array von Objekten, die sich eindeutig miteinander vergleichen la
 
 ## Durchführung
 
-1. Starte mit dem ersten Element
-    – Es liegt alleine, deshalb ist es automatisch sortiert.
-
-2. Nimm das nächste Element („Schlüssel“) in die Hand.
-
-3. Vergleiche es mit den bereits sortierten Elementen links davon:
-    • Gehe von rechts nach links.
-    • Solange das linke Element größer ist, schiebe es einen Platz nach rechts.
-
-4. Lege den „Schlüssel“ in die Lücke, die dabei entstanden ist.
-
-5. Rücke eins nach rechts und wiederhole Schritte 2 bis 4, bis alle Elemente durchlaufen sind.
-
-6. Fertig – das ganze Feld ist nun sortiert.
+| Schritt | Inhalt der Grafik | Was passiert? |
+|---------|------------------|---------------|
+| **Step&nbsp;0** | **5** (grün = sortiert) &nbsp;&nbsp; **2 4 6 1 3** (gelb = unsortiert) &nbsp;&nbsp; **Key = 2** (rot) | Ausgangslage. Die Hand enthält nur **5** – ein einzelnes Element gilt bereits als sortiert. Der erste „Schlüssel“ ist **2**. |
+| **Step&nbsp;1** | **2 5** (grün) &nbsp;&nbsp; **4 6 1 3** (gelb) &nbsp;&nbsp; **Key = 4** | **2** wird links von **5** eingefügt → Hand jetzt **2 5**. Nächster Schlüssel ist **4**. |
+| **Step&nbsp;2** | **2 4 5** (grün) &nbsp;&nbsp; **6 1 3** (gelb) &nbsp;&nbsp; **Key = 6** | **4** findet seinen Platz zwischen **2** und **5**. Hand wird **2 4 5**. Schlüssel wechselt zu **6**. |
+| **Step&nbsp;3** | **2 4 5 6** (grün) &nbsp;&nbsp; **1 3** (gelb) &nbsp;&nbsp; **Key = 1** | **6** ist größer als alles links davon → wird ganz rechts angehängt. Hand nun **2 4 5 6**. Schlüssel: **1**. |
+| **Step&nbsp;4** | **1 2 4 5 6** (grün) &nbsp;&nbsp; **3** (gelb) &nbsp;&nbsp; **Key = 3** | **1** ist kleiner als alle sortierten Werte → wird ganz links eingesteckt. Hand wird **1 2 4 5 6**. Neuer Schlüssel: **3**. |
+| **Step&nbsp;5** | **1 2 3 4 5 6** (grün) | **3** wird zwischen **2** und **4** platziert. Die unsortierte Gruppe ist leer – das Array ist vollständig sortiert. |
 
 
 ### Grafisch
