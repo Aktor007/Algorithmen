@@ -98,6 +98,23 @@ for i = 2 .. n
     A[j + 1] = key
 ```
 
+### Beschreibung Pseudo-Code
+
+| Begriff / Symbol        | Bedeutung im Kontext des Insertion-Sort-Algorithmus                                                                                                                      |
+|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------|
+| **for**                 | Äußere Schleife, die den Index `i` sukzessive von 2 bis `n` erhöht. Damit wird jedes Array-Element **einmal** als „Schlüssel“ (`key`) ausgewählt.                          |
+| **i**                   | Schleifenzähler der äußeren `for`-Schleife. Zeigt auf das **aktuelle Element**, das in den bereits sortierten Teil links davon eingefügt werden soll.                       |
+| **n**                   | Gesamtzahl der Elemente im Array `A`. Dient als obere Schranke der Schleife.                                                                                                |
+| **key**                 | Temporäre Variable, die den Wert `A[i]` speichert. Repräsentiert die „Karte in der rechten Hand“, die an die richtige Stelle geschoben wird.                               |
+| **A**                   | Das zu sortierende **Array** (bzw. Liste). Einzelne Elemente werden über die eckigen Klammern indiziert, z.&nbsp;B. `A[j]`.                                               |
+| **j**                   | Laufvariable der inneren `while`-Schleife. Startet bei `i − 1` und bewegt sich nach links, um die korrekte Einfügeposition für `key` zu finden.                            |
+| **while**               | Innere Schleife, die läuft, solange **beide** Bedingungen (`j > 0` **und** `A[j] > key`) erfüllt sind. Durchsucht den sortierten Bereich von rechts nach links.             |
+| **>**                   | Vergleichsoperator „größer als“. Prüft, ob das linksliegende Element `A[j]` größer ist als der `key`.                                                                      |
+| **and**                 | Logischer **UND-Operator**. Die `while`-Schleife läuft nur weiter, wenn beide Teilausdrücke wahr sind.                                                                     |
+| ``A[j + 1] = A[j]``     | Kopiert das Element `A[j]` **eine Position nach rechts** – es entsteht eine Lücke, in die der `key` später eingefügt wird.                                                |
+| ``j = j - 1``           | Dekrementiert `j`. Verschiebt den inneren Suchzeiger um eine Position nach links.                                                                                         |
+| ``A[j + 1] = key``      | Fügt den zwischengespeicherten `key` an der gefundenen Stelle in das Array ein – dort, wo die Bedingungen der `while`-Schleife erstmals nicht mehr erfüllt sind.           |
+| `// …`                  | Doppelschrägstrich leitet einen **Kommentar** ein; alles dahinter ist nur Erklärung für den Menschen und wird vom Programm ignoriert.                                     |
 
 ## Ergebnis
 <!-- Zeit-/Speicherkomplexität, Beispielausgabe, Tests -->
