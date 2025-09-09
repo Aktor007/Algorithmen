@@ -122,15 +122,15 @@ Index: 1  2   3   4   5   6
 
 #### Schritt-für-Schritt-Story
 
-| Step | Szene (ASCII-Bild) | Was passiert im Code? | Merksatz |
+| Step | Szene (Array-Bild) | Was passiert im Code? | Merksatz |
 |-----:|--------------------|-----------------------|----------|
-| 0 | `🐶🐭 🐱 🐻 🐜 🐰` | Igel `i = 2` ruft Koala `key = 🐭` (Zahl 2). Jaguar `j = 1` schaut nach links. | |
-| 1 | `🐭 🐶🐱 🐻 🐜 🐰` | `A[j] > key`? 🐶(5) > 🐭(2) → **Elefant-Aktion**: Hund rutscht nach rechts. Jaguar springt nach links (`j = 0`). Danach `A[j+1] = key` – Maus sitzt links. | |
-| 2 | `🐭 🐶🐱 🐻 🐜 🐰→i=3` | Koala holt 🐱 (4). Jaguar startet bei 🐶 (5). 5 > 4 ⇒ Hund wackelt nach rechts, Jaguar nach links. 2 > 4? Nein. Katze wird eingesetzt. | |
-| 3 | `🐭 🐱 🐶🐻 🐜 🐰→i=4` | Koala holt 🐻 (6). Jaguar vergleicht, nichts größer ⇒ Bär bleibt rechts. | |
-| 4 | `🐭 🐱 🐶 🐻🐜 🐰→i=5` | Koala holt 🐜 (1). Jaguar schiebt erst 🐻, dann 🐶, dann 🐱, dann 🐭 je einen Platz nach rechts. Ganz links wird Ameise eingesetzt. | |
-| 5 | `🐜 🐭 🐱 🐶 🐻🐰→i=6` | Koala holt 🐰 (3). Jaguar schiebt Bär und Hund ein Feld, Katze bleibt (4 > 3, aber 2 < 3). Hase wird hinter Katze eingesetzt. | |
-| 6 | `🐜 🐭 🐰 🐱 🐶 🐻` | Igel hat das Astende (`i = n + 1`) erreicht ⇒ fertig. | „Ast ist von links nach rechts sortiert.“ |
+| 0 | `🐶🐭 🐱 🐻 🐜 🐰` | Igel **i = 2**, Koala **key = 🐭 (2)**. Jaguar **j = 1** zeigt auf 🐶 (5). | Start: „Koala packt die Maus.“ |
+| 1 | `🐭 🐶🐱 🐻 🐜 🐰` | 5 > 2 ⇒ **Hund rutscht rechts** (`A[j+1]=A[j]`), j→0, danach `A[j+1]=key` → Maus links. | „Große wackeln rechts.“ |
+| 2 | `🐭 🐶🐱 🐻 🐜 🐰   (i=3)` | Koala holt **🐱 (4)**. Jaguar j=2 zeigt auf 🐶 (5). 5 > 4 ⇒ Hund rutscht. j→1, jetzt 2 > 4? Nein. Katze wird bei j+1 eingesetzt. | „Katze schlüpft in die Lücke.“ |
+| 3 | `🐭 🐱 🐶🐻 🐜 🐰   (i=4)` | Koala holt **🐻 (6)**. j=3 zeigt auf 🐶 (5). 5 > 6? Nein ⇒ kein Schieben, Bär bleibt rechts. | „Bär ist schwer genug.“ |
+| 4 | `🐭 🐱 🐶 🐻🐜 🐰  (i=5)` | Koala holt **🐜 (1)**. Jaguar schiebt 🐻, 🐶, 🐱, 🐭 je 1 Feld nach rechts, j endet bei 0. Ameise wird ganz links eingesetzt. | „Ameise krabbelt nach vorn.“ |
+| 5 | `🐜 🐭 🐱 🐶 🐻🐰  (i=6)` | Koala holt **🐰 (3)**. Jaguar schiebt 🐻 und 🐶 rechts. Bei 🐱 (4) stoppt er (4 > 3). Hase kommt hinter Katze. | „Hase hoppelt in die Lücke.“ |
+| 6 | `🐜 🐭 🐰 🐱 🐶 🐻` | Igel erreicht **i = n+1** ⇒ äußere Schleife fertig. | „Ast vollständig sortiert.“ |
 
 
 
