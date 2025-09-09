@@ -145,3 +145,12 @@ Step 5: 🐜 🐭 🐰 🐱 🐶 🐻 |
 
 ```
 
+## Pro und Cotra
+
+| ✅ Pro&nbsp;(Nutzen)                                                                                                    | ❌ Contra&nbsp;(Grenzen)                                                                                                             |
+|-------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
+| Sehr einfache Implementation – perfekt zum Lernen von Sort-Logik                                                       | Quadratische Laufzeit ⇒ ungeeignet für große, zufällige Datensätze                                                                 |
+| In-place & O(1) Speicher – kein Extra-Speicher nötig                                                                    | Empfindlich gegen *reverse order*-Belegung                                                                                         |
+| Stabil – relative Reihenfolge gleicher Schlüssel bleibt                                                                 | Schlechte Cache-Ausnutzung bei großen Arrays                                                                                       |
+| Bester Fall **O(n)** – ideal für fast sortierte Daten (z.&nbsp;B. Log-Dateien, die nur am Ende wachsen)                 | Keine parallelisierbare Struktur                                                                                                   |
+| Nützlich als Baustein in Hybrid­algorithmen (TimSort, IntroSort)                                                        | Aufwand steigt quadratisch – andere Sorten (Merge, Quick, Heap) sind meist schneller                                               |
